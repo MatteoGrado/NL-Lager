@@ -1,0 +1,89 @@
+body {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Ensure the body takes at least the full viewport height */
+    background-color: #f0f0f0; /* Light gray background for better contrast */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: ghostwhite;
+    font-family: Arial, sans-serif;
+    font-size: 14pt;
+    width: 90%;
+    max-width: 400px; /* Responsive max width */
+    padding: 20px; /* Add some padding inside the container */
+    border: 1px solid black;
+    border-radius: 10px; /* Rounded corners for a modern look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+
+#header {
+    font-family: Arial, sans-serif;
+    font-size: 20pt;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+form {
+    width: 100%;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"] {
+    width: 380px;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    font-size: 14pt;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth transition effect */
+    margin: 10px 0; /* Space between buttons */
+    width: 100%; /* Make buttons take full width of their container */
+    height: 50px; /* Set a fixed height for buttons */
+}
+
+/* Specific Button Styles */
+.btn1 {
+    background-color: darkolivegreen;
+}
+.btn1:hover {
+    background-color: green;
+}
+
+.btn2 {
+    background-color: orangered;
+}
+.btn2:hover {
+    background-color: red;
+}
+
+.btn3 {
+    background-color: blueviolet;
+}
+.btn3:hover {
+    background-color: blue;
+}

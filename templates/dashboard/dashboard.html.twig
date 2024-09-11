@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ asset('styles/dashboard/dashboard.css') }}">
+</head>
+<body>
+<div class="header">
+    <div class="left-header">
+        <button class="sidebar-toggle" onclick="toggleSidebar()">
+            ☰
+        </button>
+        <h1>Dashboard</h1>
+    </div>
+    <input type="text" class="search-bar" placeholder="Suche...">
+</div>
+<div class="container">
+    <div class="sidebar" id="sidebar">
+        <ul>
+            <li><a href="#">Link 1</a></li>
+            <li><a href="#">Link 2</a></li>
+            <li><a href="#">Link 3</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <table class="data-table">
+            <thead>
+            <tr>
+                <th>Produkt-ID</th>
+                <th>Product Name</th>
+                <th>Lagerbestand</th>
+                <th>Preis €</th>
+                <th>Lieferant</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<script>
+    function toggleSidebar() {
+        var sidebar = document.getElementById("sidebar");
+        sidebar.classList.toggle("active");
+    }
+</script>
+</body>
+</html>

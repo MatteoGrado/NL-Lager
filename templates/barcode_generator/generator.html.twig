@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="{{ asset('styles/generator/generator.css') }}">
+{% block body %}
+    <div class="container">
+        <h1 id="header">Barcode Erstellen</h1>
+            {{ form_start(form) }}
+            {{ form_end(form) }}
+        <div class="divider"></div>
+        <div class="barcode-preview">
+            <div class="barcode-box">
+                Barcode Preview
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}

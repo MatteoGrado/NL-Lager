@@ -1,0 +1,1 @@
+GRANT ALL PRIVILEGES ON IMS_Admin.* TO 'IMS_Admin'@'%';
