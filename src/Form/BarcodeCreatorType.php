@@ -12,24 +12,28 @@ use Symfony\Component\Form\FormBuilderInterface;
 class BarcodeCreatorType extends AbstractType {
     public function buildForm(FormBuilderInterface $builder, array $options): void {
         $builder
-            ->add('Product_ID',
+            ->add('id',
             TextType::class,
             ['label' => 'Product ID',
+                'required' => false,
             'attr' => ['class' => 'product-ID']
             ])
             ->add('Product_Name',
             TextType::class,
             ['label' => 'Product Name',
+                'required' => false,
             'attr' => ['class' => 'product-Name']
             ])
             ->add('Product_Description',
             TextType::class,
             ['label' => 'Product Beschreibung',
+                'required' => false,
             'attr' => ['class' => 'product-description']
             ])
             ->add('Barcode-Type',
                 ChoiceType::class, [
                 'label' => 'Barcode Type',
+                    'required' => true,
                 'choices' => [
                     'Code-128' => 'Code-128',
                     'EAN' => 'EAN',

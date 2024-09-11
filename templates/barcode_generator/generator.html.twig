@@ -9,7 +9,12 @@
         <div class="divider"></div>
         <div class="barcode-preview">
             <div class="barcode-box">
-                Barcode Preview
+                {% if product_name %}
+                    <h2>Barcode Preview</h2>
+                    <img src="{{ path('barcode_generator') }}" alt="Generated Barcode">
+                {% else %}
+                    <p>No barcode generated yet.</p>
+                {% endif %}
             </div>
         </div>
     </div>
