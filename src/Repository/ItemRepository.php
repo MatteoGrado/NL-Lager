@@ -9,18 +9,14 @@ use Doctrine\Persistence\ManagerRegistry;
 /**
  * @extends ServiceEntityRepository<Item>
  */
-class ItemRepository extends ServiceEntityRepository
-{
-    public function __construct(ManagerRegistry $registry)
-    {
+class ItemRepository extends ServiceEntityRepository {
+    public function __construct(ManagerRegistry $registry) {
         parent::__construct($registry, Item::class);
     }
-
     //    /**
     //     * @return Item[] Returns an array of Item objects
     //     */
-    //    public function findByExampleField($value): array
-    //    {
+    //    public function findByExampleField($value): array {
     //        return $this->createQueryBuilder('i')
     //            ->andWhere('i.exampleField = :val')
     //            ->setParameter('val', $value)
@@ -30,7 +26,6 @@ class ItemRepository extends ServiceEntityRepository
     //            ->getResult()
     //        ;
     //    }
-
     //    public function findOneBySomeField($value): ?Item
     //    {
     //        return $this->createQueryBuilder('i')
