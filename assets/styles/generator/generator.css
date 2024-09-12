@@ -7,6 +7,7 @@ body {
     align-items: center;
     background-color: #f0f0f0;
     font-family: Arial, sans-serif;
+    box-sizing: border-box;
 }
 
 .container {
@@ -17,7 +18,6 @@ body {
     border: 1px solid black;
     width: 90%;
     max-width: 1000px;
-    height: auto;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
@@ -29,6 +29,7 @@ body {
     margin-bottom: 20px;
     width: 100%;
     text-align: center;
+    color: #333;
 }
 
 .form-section {
@@ -69,11 +70,14 @@ label {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 .barcode-box {
     width: 100%;
-    height: 400px;
+    max-width: 500px;
+    height: auto;
+    padding: 20px;
     background-color: #e0e0e0;
     border: 1px solid #ccc;
     display: flex;
@@ -81,6 +85,13 @@ label {
     align-items: center;
     color: #888;
     font-size: 22px;
+    text-align: center;
+}
+
+.barcode-box img {
+    max-width: 100%;
+    max-height: 300px;
+    object-fit: contain;
 }
 
 .create-button {
@@ -100,6 +111,23 @@ label {
     background-color: #0056b3;
 }
 
+.print-button {
+    width: 100%;
+    background-color: green;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.print-button:hover {
+    background-color: darkgreen;
+}
+
 @media (max-width: 768px) {
     .container {
         flex-direction: column;
@@ -117,5 +145,9 @@ label {
 
     .divider {
         display: none;
+    }
+
+    .barcode-box {
+        max-width: 100%;
     }
 }

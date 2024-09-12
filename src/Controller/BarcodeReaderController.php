@@ -25,7 +25,7 @@ class BarcodeReaderController extends AbstractController {
                         return $this->redirectToRoute('dashboard');
                         break;
                     case 'Barcode_Erstellen':
-                        return $this->redirectToRoute('generator');
+                        return $this->redirectToRoute('barcode_generator');
                         break;
                 }
             }

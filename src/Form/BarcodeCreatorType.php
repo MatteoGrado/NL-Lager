@@ -45,6 +45,10 @@ class BarcodeCreatorType extends AbstractType {
             SubmitType::class,
             ['attr' => ['class' => 'create-button']
             ])
+            ->add('Print',
+                SubmitType::class,
+                ['attr' => ['class' => 'print-button']
+                ])
         ;
     }
 }

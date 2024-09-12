@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Form\BarcodeCreatorType;
 use App\Repository\ItemRepository;
+use Picqer\Barcode\BarcodeGenerator;
 use Picqer\Barcode\BarcodeGeneratorJPG;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -35,11 +36,30 @@ class BarcodeGeneratorController extends AbstractController {
             $barcodeData = sprintf('%s|%s', $id, $product_name);
             $barcode_type = $formData['Barcode-Type'];
 
+            switch ($barcode_type) {
+                case 'TYPE_CODE_128':
+                    $barcodeType = BarcodeGenerator::TYPE_CODE_128;
+                    break;
+                case 'TYPE_EAN_8':
+                    $barcode_type = BarcodeGenerator::TYPE_EAN_8;
+                    break;
+                case 'TYPE_UPC_A':
+                    $barcode_type = BarcodeGenerator::TYPE_UPC_A;
+                    break;
+                case 'TYPE_ITF_14':
+                    $barcode_type = BarcodeGenerator::TYPE_ITF_14;
+                    break;
+                default:
+                    $barcode_type = BarcodeGenerator::TYPE_CODE_128;
+                    break;
+            }
+
             $barcodeImage = $barcode->getBarcode($barcodeData, $barcode_type);
             $response = new Response($barcodeImage);
             $response->headers->set('Content-Type', 'image/jpeg');
 
             return $response;
+
         }
 
         return $this->render('barcode_generator/generator.html.twig', [
