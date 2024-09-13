@@ -37,16 +37,16 @@ class BarcodeGeneratorController extends AbstractController {
             $barcode_type = $formData['Barcode-Type'];
 
             switch ($barcode_type) {
-                case 'TYPE_CODE_128':
+                case 'Code_128':
                     $barcodeType = BarcodeGenerator::TYPE_CODE_128;
                     break;
-                case 'TYPE_EAN_8':
+                case 'EAN':
                     $barcode_type = BarcodeGenerator::TYPE_EAN_8;
                     break;
-                case 'TYPE_UPC_A':
+                case 'UPC':
                     $barcode_type = BarcodeGenerator::TYPE_UPC_A;
                     break;
-                case 'TYPE_ITF_14':
+                case 'ITF':
                     $barcode_type = BarcodeGenerator::TYPE_ITF_14;
                     break;
                 default:
@@ -55,6 +55,16 @@ class BarcodeGeneratorController extends AbstractController {
             }
 
             $barcodeImage = $barcode->getBarcode($barcodeData, $barcode_type);
+
+            /*
+            TODO-S
+                - request the Barcode
+                - save the Barcode
+                - Put URL to Barcode JPG in template
+                - Find a printer package
+                - Give print button a function
+            */
+
             $response = new Response($barcodeImage);
             $response->headers->set('Content-Type', 'image/jpeg');
 

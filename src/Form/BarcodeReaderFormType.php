@@ -14,7 +14,7 @@ class BarcodeReaderFormType extends AbstractType {
                 TextType::class,
                 ['label' => 'Barcode eingeben',
                 'required' => false,
-                'attr' => ['class' => 'inp1']
+                'attr' => ['class' => 'inp1', 'placeholder' => 'Click here']
                 ])
             ->add('Einlesen', SubmitType::class,
                 ['label' => 'Einlesen',
