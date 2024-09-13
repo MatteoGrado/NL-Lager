@@ -10,6 +10,8 @@ use Symfony\Component\Routing\Attribute\Route;
 class DashboardController extends AbstractController {
     #[Route('/dashboard', name: 'dashboard')]
     public function index(Item $item): Response {
+        $item = new Item();
+
         $result = array
         ([
             'id' => $item->getId(),
