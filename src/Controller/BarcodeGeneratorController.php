@@ -53,27 +53,31 @@ class BarcodeGeneratorController extends AbstractController {
                     $barcode_type = BarcodeGenerator::TYPE_CODE_128;
                     break;
             }
-
-            $barcodeImage = $barcode->getBarcode($barcodeData, $barcode_type);
-
             /*
             TODO-S
-                - request the Barcode
-                - save the Barcode
-                - Put URL to Barcode JPG in template
+                - Show the jpg in the template
                 - Find a printer package
                 - Give print button a function
+                - foreach btn.press make a new step in the story file
+                - format in json
+                -
             */
 
-            $response = new Response($barcodeImage);
-            $response->headers->set('Content-Type', 'image/jpeg');
+            $barcodeImage = $barcode->getBarcode($barcodeData, $barcode_type);
+            $barcodeDIR = $this->getParameter('kernel.project_dir') . '/assets/barcodes/';
+            $barcodeFilename = $barcodeDIR . 'barcode_' . $id . '.jpg';
 
-            return $response;
+            if (!is_dir($barcodeDIR)) {
+                mkdir($barcodeDIR, 0777, true);
+            }
 
+            file_put_contents($barcodeFilename, $barcodeImage);
+            $barcodeUrl = '/assets/barcodes/barcode_' . $id . '.jpg';
         }
 
         return $this->render('barcode_generator/generator.html.twig', [
             'product_name' => $product_name,
+            'barcode_url' => $barcodeUrl ?? null,
             'form' => $form
         ]);
     }

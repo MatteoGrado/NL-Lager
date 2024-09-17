@@ -18,12 +18,6 @@ class BarcodeCreatorType extends AbstractType {
                 'required' => false,
             'attr' => ['class' => 'product-ID']
             ])
-            ->add('Product_Name',
-            TextType::class,
-            ['label' => 'Product Name',
-                'required' => false,
-            'attr' => ['class' => 'product-Name']
-            ])
             ->add('Product_Description',
             TextType::class,
             ['label' => 'Product Beschreibung',

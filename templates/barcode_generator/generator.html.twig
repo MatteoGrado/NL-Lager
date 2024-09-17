@@ -4,19 +4,16 @@
     <div class="container">
         <h1 id="header">Barcode Erstellen</h1>
             {{ form_start(form) }}
-                {{ form_row(form.Product_Name) }}
+                <label class="product_name_label">Produkt Name:</label>
+                <p class="product_name">{{ product_name }}</p>
             {{ form_end(form) }}
         <div class="divider"></div>
         <div class="barcode-preview">
             <div class="barcode-box">
                 {% if product_name %}
-                    <h2>Barcode Preview</h2>
-                    <img src="{{ path('barcode_generator') }}" alt="Generated Barcode">
-                {% else %}
-                    <p>No barcode generated yet.</p>
+                    <img class="img-loader" src="{{ asset('../../assets/barcodes/' ~ barcode_url) }} }}" alt="Generierter Barcode">
                 {% endif %}
             </div>
         </div>
-    </div>
     </div>
 {% endblock %}
