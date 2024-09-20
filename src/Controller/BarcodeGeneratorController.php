@@ -64,7 +64,7 @@ class BarcodeGeneratorController extends AbstractController {
             */
 
             $barcodeImage = $barcode->getBarcode($barcodeData, $barcode_type);
-            $barcodeDIR = $this->getParameter('kernel.project_dir') . '/assets/barcodes/';
+            $barcodeDIR = $this->getParameter('kernel.project_dir') . '/public/barcodes/';
             $barcodeFilename = $barcodeDIR . 'barcode_' . $id . '.jpg';
 
             if (!is_dir($barcodeDIR)) {
@@ -72,7 +72,7 @@ class BarcodeGeneratorController extends AbstractController {
             }
 
             file_put_contents($barcodeFilename, $barcodeImage);
-            $barcodeUrl = '/assets/barcodes/barcode_' . $id . '.jpg';
+            $barcodeUrl = '/public/barcodes/barcode_' . $id . '.jpg';
         }
 
         return $this->render('barcode_generator/generator.html.twig', [

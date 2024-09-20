@@ -2,11 +2,16 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+* {
+    box-sizing: inherit;
 }
 
 h1 {
     color: white;
-    margin-left: 100px;
+    margin-left: 20px;
 }
 
 .header {
@@ -14,7 +19,7 @@ h1 {
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background-color: #000; /* Navbar color changed to black */
+    background-color: #000;
     border-bottom: 1px solid #ccc;
     position: relative;
 }
@@ -25,20 +30,22 @@ h1 {
 }
 
 .sidebar-toggle {
-    width: 70px;
-    height: 70px;
-    font-size: 18px;
+    width: 50px;
+    height: 50px;
+    font-size: 16px;
     margin-right: 10px;
+    margin-top: 20px;
     cursor: pointer;
-    border: none; /* Removed border from the button */
+    border: none;
     background: none;
     color: #fff;
 }
 
 .search-bar {
     padding: 5px;
-    font-size: 16px;
-    width: 350px;
+    font-size: 14px;
+    width: 100%;
+    max-width: 400px;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -46,6 +53,39 @@ h1 {
 
 .container {
     display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+}
+
+.dashboard-form-container {
+    max-width: 50%;
+    margin: 10px auto;
+    flex: 1 1 300px;
+}
+
+.form-row {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.form-group {
+    flex: 1 1 200px;
+    text-align: center;
+}
+
+.selector-years, .select-price, .selector-stock {
+    width: 100%;
+    max-width: 200px;
+    padding: 5px;
+}
+
+label {
+    font-weight: bold;
+    font-size: 12pt;
+    display: block;
+    margin-bottom: 5px;
 }
 
 .sidebar {
@@ -54,6 +94,7 @@ h1 {
     color: #fff;
     height: 100vh;
     padding-top: 20px;
+    margin-top: -100px;
     transition: width 0.3s;
 }
 
@@ -67,7 +108,7 @@ h1 {
 }
 
 .sidebar ul li {
-    padding: 10px 20px;
+    padding: 5px 20px;
 }
 
 .sidebar ul li a {
@@ -98,4 +139,57 @@ h1 {
 
 .data-table th {
     background-color: #f4f4f4;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100px;
+    }
+
+    .sidebar.active {
+        width: 50px;
+    }
+
+    .search-bar {
+        width: 80%;
+    }
+
+    .form-wrapper {
+        justify-content: center;
+    }
+
+    .dashboard-form-container {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .search-bar {
+        width: 90%;
+        position: relative;
+        left: 0;
+        transform: none;
+        margin-top: 10px;
+    }
+
+    .sidebar-toggle {
+        width: 40px;
+        height: 40px;
+        font-size: 14px;
+    }
+
+    .form-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .form-row {
+        flex-direction: column;
+        align-items: center;
+    }
 }

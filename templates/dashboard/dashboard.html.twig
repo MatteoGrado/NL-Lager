@@ -16,6 +16,25 @@
     </div>
     <input type="text" class="search-bar" placeholder="Suche...">
 </div>
+    <div class="dashboard-form-container">
+        {{ form_start(form) }}
+        <div class="form-row">
+            <div class="form-group">
+                {{ form_label(form['Jahre']) }}
+                {{ form_widget(form['Jahre']) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form['Preis']) }}
+                {{ form_widget(form['Preis']) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form['Menge']) }}
+                {{ form_widget(form['Menge']) }}
+            </div>
+        </div>
+        {{ form_end(form) }}
+    </div>
+
 <div class="container">
     <div class="sidebar" id="sidebar">
         <ul>
@@ -28,10 +47,10 @@
         <table class="data-table">
             <thead>
             <tr>
-                <th>Produkt-ID</th>
-                <th>Product Name</th>
+                <th>ID</th>
+                <th>Produkt Name</th>
                 <th>Lagerbestand</th>
-                <th>Preis €</th>
+                <th>Preis ( € )</th>
                 <th>Lieferant</th>
             </tr>
             </thead>
