@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Form\BarcodeCreatorType;
 use App\Repository\ItemRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Picqer\Barcode\BarcodeGenerator;
 use Picqer\Barcode\BarcodeGeneratorJPG;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -13,7 +14,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class BarcodeGeneratorController extends AbstractController {
     #[Route('/generator', name: 'barcode_generator')]
-    public function show(Request $request, ItemRepository $itemRepository): Response {
+    public function show(Request $request, EntityManagerInterface $entityManager, ItemRepository $itemRepository): Response {
         $product_name = null;
 
         $form = $this->createForm(BarcodeCreatorType::class);
@@ -28,7 +29,7 @@ class BarcodeGeneratorController extends AbstractController {
             if ($product) {
                 $product_name = $product->getProductName();
             } else {
-                throw $this->createNotFoundException('Product not found!');
+                return $this->redirectToRoute('NewItem');
             }
 
             $barcode = new BarcodeGeneratorJPG();
@@ -53,14 +54,13 @@ class BarcodeGeneratorController extends AbstractController {
                     $barcode_type = BarcodeGenerator::TYPE_CODE_128;
                     break;
             }
+
             /*
-            TODO-S
+            TODO:
                 - Show the jpg in the template
                 - Find a printer package
                 - Give print button a function
-                - foreach btn.press make a new step in the story file
-                - format in json
-                -
+                - foreach btn.press make a new step in the story file format it in json
             */
 
             $barcodeImage = $barcode->getBarcode($barcodeData, $barcode_type);
