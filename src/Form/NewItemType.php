@@ -19,23 +19,23 @@ class NewItemType extends AbstractType {
                     'placeholder' => 'Produkt-ID',
                 ]]
             )
-            ->add('Product-name',
+            ->add('product_name',
             TextType::class,
-            ['label' => 'Produkt-Name:',
+            ['label' => 'Produkt Name:',
                 'attr' => ['class' => 'form-control',
-                    'required' => false
+                    'required' => true
                 ]]
             )
-            ->add('Preis',
+            ->add('price',
             TextType::class,
             ['label' => 'Preis:',
                 'attr' => ['class' => 'form-control',
                     'required' => false
                 ]]
             )
-            ->add('Verkaufer',
+            ->add('seller',
             TextType::class,
-                ['label' => 'Verkauf:',
+                ['label' => 'Verkäufer:',
                     'attr' => ['class' => 'form-control',
                     'required' => false
                 ]]
