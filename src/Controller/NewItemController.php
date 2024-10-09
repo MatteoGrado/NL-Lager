@@ -20,15 +20,10 @@ class NewItemController extends AbstractController {
             $formData = $form->getData();
 
             $product_name = $formData['product_name'];
-            $price = $formData['price'];
-            $seller = $formData['seller'];
 
-            if (!$itemRepository->find($product_name) === $formData['product_name']) {
+            if ($itemRepository->find($product_name) == $formData['product_name']) {
                 $entityManager->persist($formData);
                 $entityManager->flush();
-
-                $message = "Daten Erfolgreich gespeichert!";
-                echo $message;
             } else {
                 echo "Das Produkt gibt es Bereits!";
             }
