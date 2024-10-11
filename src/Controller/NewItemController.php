@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Item;
 use App\Form\NewItemType;
 use App\Repository\ItemRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -20,12 +21,24 @@ class NewItemController extends AbstractController {
             $formData = $form->getData();
 
             $product_name = $formData['product_name'];
+            $product_stock = $formData['product_stock'];
+            $product_price = $formData['price'];
+            $product_seller = $formData['seller'];
 
-            if ($itemRepository->find($product_name) == $formData['product_name']) {
-                $entityManager->persist($formData);
+            if (!$itemRepository->findOneBy(['product_name' => $product_name]) == $formData['product_name']) {
+                $item = new Item();
+
+                $item->setProductName($product_name);
+                $item->setProductStock($product_stock);
+                $item->setProductCost($product_price);
+                $item->setProductSeller($product_seller);
+
+                $entityManager->persist($item);
                 $entityManager->flush();
+
+                echo "Produkt erfolgreich hinzugefügt!";
             } else {
-                echo "Das Produkt gibt es Bereits!";
+                throw $this->createNotFoundException('Product not found');
             }
         }
         return $this->render('new_item/newItem.html.twig', [
