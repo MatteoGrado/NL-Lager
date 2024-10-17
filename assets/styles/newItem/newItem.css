@@ -65,6 +65,17 @@ form {
     background-color: darkblue;
 }
 
+.alert-success {
+    margin-bottom: 20px; /* Abstand nach unten */
+    padding: 10px;
+    background-color: greenyellow;
+    color: black;
+    border: 1px solid black;
+    border-radius: 4px;
+    text-align: center;
+    width: 90%;
+}
+
 @media (max-width: 768px) {
     .form-container {
         max-width: 90%;

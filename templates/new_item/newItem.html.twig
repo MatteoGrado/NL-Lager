@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <link rel="stylesheet" href="{{ asset('styles/newItem/newItem.css') }}">
 {% block body %}
+    {% for message in app.flashes('success') %}
+        <div class="alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
     <div class="form-container">
         {{ form_start(form) }}
-
         {{ form_end(form) }}
     </div>
 {% endblock %}

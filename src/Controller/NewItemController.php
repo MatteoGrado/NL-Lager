@@ -36,9 +36,9 @@ class NewItemController extends AbstractController {
                 $entityManager->persist($item);
                 $entityManager->flush();
 
-                echo "Produkt erfolgreich hinzugefügt!";
+                $this->addFlash('success', 'Der Artikel wurde erfolgreich hinzugefügt!');
             } else {
-                throw $this->createNotFoundException('Product not found');
+                throw $this->createNotFoundException('Das Produkt ist bereits vorhanden!');
             }
         }
         return $this->render('new_item/newItem.html.twig', [
