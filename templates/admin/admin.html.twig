@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ asset('styles/admin/admin.css') }}">
+    <title>IMS - Admin-Login</title>
+</head>
+<body>
+<div class="form-container">
+    <h1 class="form-header">Login:</h1>
+    {{ form_start(form) }}
+    {{ form_row(form.username) }}
+    {{ form_row(form.password) }}
+    <div class="form-check">
+        {{ form_widget(form.remember_me) }}
+        {{ form_label(form.remember_me) }}
+    </div>
+    {{ form_row(form.submit) }}
+    {{ form_end(form) }}
+</div>
+</body>
+</html>

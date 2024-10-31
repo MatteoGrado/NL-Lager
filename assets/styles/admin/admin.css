@@ -1,0 +1,113 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #f4f6f9;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+}
+
+.form-container {
+    max-width: 450px;
+    width: 90%;
+    padding: 40px;
+    border-radius: 12px;
+    border: 2px solid black;
+    background-color: #ffffff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    transition: box-shadow 0.3s ease;
+}
+
+.form-container:hover {
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+}
+
+.form-header {
+    font-family: Arial, sans-serif;
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.form-container label {
+    font-weight: bold;
+    margin-bottom: 6px;
+    font-size: 12pt;
+    color: #555;
+    display: block;
+}
+
+.form-container .form-control {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 20px;
+    font-size: 1em;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.form-container .form-control:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.form-container .form-check {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.form-container .form-check input[type="checkbox"] {
+    margin-right: 15px;
+    margin-top: -5px;
+}
+
+.form-container .form-check-label {
+    font-size: 0.95em;
+    font-weight: 400;
+    color: #555;
+}
+
+.form-container .btn-primary {
+    width: 100%;
+    padding: 14px;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: bolder;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.form-container .btn-primary:hover {
+    background-color: #0069d9;
+    transform: translateY(-2px);
+}
+
+.form-container .btn-primary:active {
+    background-color: #005cbf;
+    transform: translateY(0);
+}
+
+@media (max-width: 576px) {
+    .form-container {
+        width: 95%;
+        padding: 30px;
+    }
+
+    .form-container label,
+    .form-container .form-control,
+    .form-container .btn-primary,
+    .form-container .form-check-label {
+        font-size: 1em;
+    }
+}

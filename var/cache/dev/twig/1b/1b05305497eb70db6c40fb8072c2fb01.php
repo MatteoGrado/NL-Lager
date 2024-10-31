@@ -50,7 +50,7 @@ class __TwigTemplate_b99f19bcbf45bb63e56d0a7bb74ca22d extends Template
 <head>
     <meta charset=\"UTF-8\">
     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
-    <title>Dashboard</title>
+    <title>IMS - Dashboard</title>
     <link rel=\"stylesheet\" href=\"";
         // line 7
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("styles/dashboard/dashboard.css"), "html", null, true);
@@ -112,9 +112,12 @@ class __TwigTemplate_b99f19bcbf45bb63e56d0a7bb74ca22d extends Template
 <div class=\"container\">
     <div class=\"sidebar\" id=\"sidebar\">
         <ul>
-            <li><a href=\"#\">Link 1</a></li>
-            <li><a href=\"#\">Link 2</a></li>
-            <li><a href=\"#\">Link 3</a></li>
+            <li><a href=\"";
+        // line 41
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin");
+        yield "\">Admin</a></li>
+            <li><a href=\"#\">Archive</a></li>
+            <li><a href=\"#\">Logs</a></li>
         </ul>
     </div>
     <div class=\"content\">
@@ -178,7 +181,7 @@ class __TwigTemplate_b99f19bcbf45bb63e56d0a7bb74ca22d extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  108 => 35,  102 => 32,  98 => 31,  92 => 28,  88 => 27,  82 => 24,  78 => 23,  72 => 20,  56 => 7,  48 => 1,);
+        return array (  117 => 41,  108 => 35,  102 => 32,  98 => 31,  92 => 28,  88 => 27,  82 => 24,  78 => 23,  72 => 20,  56 => 7,  48 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -188,7 +191,7 @@ class __TwigTemplate_b99f19bcbf45bb63e56d0a7bb74ca22d extends Template
 <head>
     <meta charset=\"UTF-8\">
     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
-    <title>Dashboard</title>
+    <title>IMS - Dashboard</title>
     <link rel=\"stylesheet\" href=\"{{ asset('styles/dashboard/dashboard.css') }}\">
 </head>
 <body>
@@ -223,9 +226,9 @@ class __TwigTemplate_b99f19bcbf45bb63e56d0a7bb74ca22d extends Template
 <div class=\"container\">
     <div class=\"sidebar\" id=\"sidebar\">
         <ul>
-            <li><a href=\"#\">Link 1</a></li>
-            <li><a href=\"#\">Link 2</a></li>
-            <li><a href=\"#\">Link 3</a></li>
+            <li><a href=\"{{ path('admin') }}\">Admin</a></li>
+            <li><a href=\"#\">Archive</a></li>
+            <li><a href=\"#\">Logs</a></li>
         </ul>
     </div>
     <div class=\"content\">
