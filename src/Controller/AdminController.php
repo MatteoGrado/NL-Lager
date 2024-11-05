@@ -10,8 +10,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
 class AdminController extends AbstractController {
-    #[Route('/admin', name: 'admin')]
-    public function admin(Request $request, UserRepository $userRepository): Response {
+    #[Route('/admin', name: 'login')]
+    public function adminLogin(Request $request, UserRepository $userRepository): Response {
         $form = $this->createForm(AdminLoginFormType::class);
         $form->handleRequest($request);
 
@@ -20,14 +20,15 @@ class AdminController extends AbstractController {
 
             $username = $data['username'];
             $password = $data['password'];
-            $rememberMe = $data['remember-me'];
 
-            $user = $userRepository->find($username);
-            if ($user && password_verify($password, $userRepository->find($password))) {
-                echo "Success";
+            $user = $userRepository->findOneBy(['username' => $username]);
+            if (!$user && password_verify($password, $user->getPassword())) {
+                $this->addFlash('error', 'Invalid username or password');
+                return $this->redirectToRoute('login');
+            } else {
+                $this->addFlash('success', 'Successfully logged in');
+                return $this->redirectToRoute('adminDashboard');
             }
-
-            return $this->redirectToRoute('admin_dashboard');
         }
 
         return $this->render('admin/admin.html.twig', [

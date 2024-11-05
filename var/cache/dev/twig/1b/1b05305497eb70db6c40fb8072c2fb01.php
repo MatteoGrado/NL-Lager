@@ -114,7 +114,7 @@ class __TwigTemplate_b99f19bcbf45bb63e56d0a7bb74ca22d extends Template
         <ul>
             <li><a href=\"";
         // line 41
-        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin");
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("login");
         yield "\">Admin</a></li>
             <li><a href=\"#\">Archive</a></li>
             <li><a href=\"#\">Logs</a></li>
@@ -226,7 +226,7 @@ class __TwigTemplate_b99f19bcbf45bb63e56d0a7bb74ca22d extends Template
 <div class=\"container\">
     <div class=\"sidebar\" id=\"sidebar\">
         <ul>
-            <li><a href=\"{{ path('admin') }}\">Admin</a></li>
+            <li><a href=\"{{ path('login') }}\">Admin</a></li>
             <li><a href=\"#\">Archive</a></li>
             <li><a href=\"#\">Logs</a></li>
         </ul>
