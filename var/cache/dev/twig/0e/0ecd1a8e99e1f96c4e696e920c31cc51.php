@@ -63,15 +63,15 @@ class __TwigTemplate_5a285db52ea0e89577f61eb593357196 extends Template
         // line 12
         yield         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 12, $this->source); })()), 'form_start');
         yield "
-    ";
+        ";
         // line 13
         yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 13, $this->source); })()), "username", [], "any", false, false, false, 13), 'row');
         yield "
-    ";
+        ";
         // line 14
         yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 14, $this->source); })()), "password", [], "any", false, false, false, 14), 'row');
         yield "
-    ";
+        ";
         // line 15
         yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 15, $this->source); })()), "submit", [], "any", false, false, false, 15), 'row');
         yield "
@@ -129,9 +129,9 @@ class __TwigTemplate_5a285db52ea0e89577f61eb593357196 extends Template
 <div class=\"form-container\">
     <h1 class=\"form-header\">Login:</h1>
     {{ form_start(form) }}
-    {{ form_row(form.username) }}
-    {{ form_row(form.password) }}
-    {{ form_row(form.submit) }}
+        {{ form_row(form.username) }}
+        {{ form_row(form.password) }}
+        {{ form_row(form.submit) }}
     {{ form_end(form) }}
 </div>
 </body>

@@ -22,12 +22,12 @@ class AdminController extends AbstractController {
             $password = $data['password'];
 
             $user = $userRepository->findOneBy(['username' => $username]);
-            if (!$user && password_verify($password, $user->getPassword())) {
-                $this->addFlash('error', 'Invalid username or password');
-                return $this->redirectToRoute('login');
-            } else {
+            if ($user && password_verify($password, $user->getPassword())) {
                 $this->addFlash('success', 'Successfully logged in');
                 return $this->redirectToRoute('adminDashboard');
+            } else {
+                $this->addFlash('error', 'Invalid username or password');
+                return $this->redirectToRoute('login');
             }
         }
 

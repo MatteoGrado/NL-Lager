@@ -392,6 +392,9 @@
     </service>
     <service id="App\Entity\Item" class="App\Entity\Item" autowire="true" autoconfigure="true"/>
     <service id="App\Entity\User" class="App\Entity\User" autowire="true" autoconfigure="true"/>
+    <service id="App\Form\AdminDashboardFormType" class="App\Form\AdminDashboardFormType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
     <service id="App\Form\AdminLoginFormType" class="App\Form\AdminLoginFormType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
@@ -1357,6 +1360,7 @@
         <argument>Symfony\Bridge\Doctrine\Form\Type</argument>
       </argument>
       <argument type="collection">
+        <argument>App\Form\AdminDashboardFormType</argument>
         <argument>App\Form\AdminLoginFormType</argument>
         <argument>App\Form\BarcodeCreatorType</argument>
         <argument>App\Form\BarcodeReaderFormType</argument>
@@ -3855,7 +3859,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension">
-      <argument type="service" id=".service_locator.Zpt7rph"/>
+      <argument type="service" id=".service_locator.Oz9a5NP"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -7152,6 +7156,8 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\NewItemController" class="App\Controller\NewItemController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\NewItemController" class="App\Controller\NewItemController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\NewItemController" class="App\Controller\NewItemController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\AdminDashboardFormType" class="App\Form\AdminDashboardFormType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\AdminDashboardFormType" class="App\Form\AdminDashboardFormType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\AdminLoginFormType" class="App\Form\AdminLoginFormType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\AdminLoginFormType" class="App\Form\AdminLoginFormType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\BarcodeCreatorType" class="App\Form\BarcodeCreatorType" autowire="true" abstract="true"/>
@@ -7903,9 +7909,10 @@
       <argument type="service" id="argument_resolver.query_parameter_value_resolver"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.Zpt7rph" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.Oz9a5NP" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="App\Form\AdminDashboardFormType" type="service_closure" id="App\Form\AdminDashboardFormType"/>
         <argument key="App\Form\AdminLoginFormType" type="service_closure" id="App\Form\AdminLoginFormType"/>
         <argument key="App\Form\BarcodeCreatorType" type="service_closure" id="App\Form\BarcodeCreatorType"/>
         <argument key="App\Form\BarcodeReaderFormType" type="service_closure" id="App\Form\BarcodeReaderFormType"/>

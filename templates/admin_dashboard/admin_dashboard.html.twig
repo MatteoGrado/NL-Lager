@@ -20,23 +20,32 @@
         <li><a href="#">Einstellungen</a></li>
         <li><a href="#">Hilfe</a></li>
     </ul>
-    <button class="logout-btn" onclick="logout()">🚪 Ausloggen</button>
+    <div class="logout-container">
+        {{ form_widget(form.logout) }}
+    </div>
 </div>
 <div class="main-content">
     <nav class="navbar">
-        <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
-        <input type="text" placeholder="Suche..." class="search-bar">
+        {{ form_start(form) }}
+        <div class="navbar-content">
+            <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+            {{ form_widget(form.search) }}
+        </div>
     </nav>
     <div class="content">
-        <h1>Benutzerliste</h1>
-        <div class="button-container">
-            <button class="add-user-btn">Nutzer Hinzufügen</button>
-            <button class="mark-all-btn">Alle Markieren</button>
+        <div class="header-container">
+            <h1>Benutzerliste</h1>
+            <div class="button-container">
+                {{ form_widget(form.mark) }}
+                {{ form_widget(form.newUser) }}
+            </div>
         </div>
         <table class="user-table">
             <thead>
             <tr>
                 <th>ID</th>
+                <th>Vorname</th>
+                <th>Nachname</th>
                 <th>Benutzername</th>
                 <th>Email</th>
                 <th>Position</th>
@@ -46,12 +55,15 @@
             <tbody>
             <tr>
                 <td>1</td>
-                <td>max_mustermann</td>
-                <td>max@beispiel.de</td>
-                <td>Mitarbeiter</td>
+                <td>Matteo</td>
+                <td>Grado</td>
+                <td>Matteo.Grado</td>
+                <td>Matteo.Grado@nikoit.de</td>
+                <td>Administrator</td>
                 <td>
-                    <button class="edit-btn">Bearbeiten</button>
-                    <button class="delete-btn">Löschen</button>
+                    {{ form_widget(form.edit) }}
+                    {{ form_widget(form.delete) }}
+                {{ form_end(form) }}
                 </td>
             </tr>
             </tbody>
@@ -64,9 +76,6 @@
         const mainContent = document.querySelector('.main-content');
         sidebar.classList.toggle('collapsed');
         mainContent.classList.toggle('collapsed');
-    }
-    function logout() {
-        alert("Ausgeloggt!");
     }
 </script>
 </body>

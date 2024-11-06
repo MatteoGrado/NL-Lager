@@ -73,23 +73,47 @@ class __TwigTemplate_89cb15188b39ce5f8587cded4080d744 extends Template
         <li><a href=\"#\">Einstellungen</a></li>
         <li><a href=\"#\">Hilfe</a></li>
     </ul>
-    <button class=\"logout-btn\" onclick=\"logout()\">🚪 Ausloggen</button>
+    <div class=\"logout-container\">
+        ";
+        // line 24
+        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 24, $this->source); })()), "logout", [], "any", false, false, false, 24), 'widget');
+        yield "
+    </div>
 </div>
 <div class=\"main-content\">
     <nav class=\"navbar\">
-        <button class=\"toggle-btn\" onclick=\"toggleSidebar()\">☰</button>
-        <input type=\"text\" placeholder=\"Suche...\" class=\"search-bar\">
+        ";
+        // line 29
+        yield         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 29, $this->source); })()), 'form_start');
+        yield "
+        <div class=\"navbar-content\">
+            <button class=\"toggle-btn\" onclick=\"toggleSidebar()\">☰</button>
+            ";
+        // line 32
+        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 32, $this->source); })()), "search", [], "any", false, false, false, 32), 'widget');
+        yield "
+        </div>
     </nav>
     <div class=\"content\">
-        <h1>Benutzerliste</h1>
-        <div class=\"button-container\">
-            <button class=\"add-user-btn\">Nutzer Hinzufügen</button>
-            <button class=\"mark-all-btn\">Alle Markieren</button>
+        <div class=\"header-container\">
+            <h1>Benutzerliste</h1>
+            <div class=\"button-container\">
+                ";
+        // line 39
+        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 39, $this->source); })()), "mark", [], "any", false, false, false, 39), 'widget');
+        yield "
+                ";
+        // line 40
+        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 40, $this->source); })()), "newUser", [], "any", false, false, false, 40), 'widget');
+        yield "
+            </div>
         </div>
         <table class=\"user-table\">
             <thead>
             <tr>
                 <th>ID</th>
+                <th>Vorname</th>
+                <th>Nachname</th>
                 <th>Benutzername</th>
                 <th>Email</th>
                 <th>Position</th>
@@ -99,12 +123,24 @@ class __TwigTemplate_89cb15188b39ce5f8587cded4080d744 extends Template
             <tbody>
             <tr>
                 <td>1</td>
-                <td>max_mustermann</td>
-                <td>max@beispiel.de</td>
-                <td>Mitarbeiter</td>
+                <td>Matteo</td>
+                <td>Grado</td>
+                <td>Matteo.Grado</td>
+                <td>Matteo.Grado@nikoit.de</td>
+                <td>Administrator</td>
                 <td>
-                    <button class=\"edit-btn\">Bearbeiten</button>
-                    <button class=\"delete-btn\">Löschen</button>
+                    ";
+        // line 64
+        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 64, $this->source); })()), "edit", [], "any", false, false, false, 64), 'widget');
+        yield "
+                    ";
+        // line 65
+        yield $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(CoreExtension::getAttribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 65, $this->source); })()), "delete", [], "any", false, false, false, 65), 'widget');
+        yield "
+                ";
+        // line 66
+        yield         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 66, $this->source); })()), 'form_end');
+        yield "
                 </td>
             </tr>
             </tbody>
@@ -117,9 +153,6 @@ class __TwigTemplate_89cb15188b39ce5f8587cded4080d744 extends Template
         const mainContent = document.querySelector('.main-content');
         sidebar.classList.toggle('collapsed');
         mainContent.classList.toggle('collapsed');
-    }
-    function logout() {
-        alert(\"Ausgeloggt!\");
     }
 </script>
 </body>
@@ -154,7 +187,7 @@ class __TwigTemplate_89cb15188b39ce5f8587cded4080d744 extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  64 => 12,  56 => 7,  48 => 1,);
+        return array (  142 => 66,  138 => 65,  134 => 64,  107 => 40,  103 => 39,  93 => 32,  87 => 29,  79 => 24,  64 => 12,  56 => 7,  48 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -181,23 +214,32 @@ class __TwigTemplate_89cb15188b39ce5f8587cded4080d744 extends Template
         <li><a href=\"#\">Einstellungen</a></li>
         <li><a href=\"#\">Hilfe</a></li>
     </ul>
-    <button class=\"logout-btn\" onclick=\"logout()\">🚪 Ausloggen</button>
+    <div class=\"logout-container\">
+        {{ form_widget(form.logout) }}
+    </div>
 </div>
 <div class=\"main-content\">
     <nav class=\"navbar\">
-        <button class=\"toggle-btn\" onclick=\"toggleSidebar()\">☰</button>
-        <input type=\"text\" placeholder=\"Suche...\" class=\"search-bar\">
+        {{ form_start(form) }}
+        <div class=\"navbar-content\">
+            <button class=\"toggle-btn\" onclick=\"toggleSidebar()\">☰</button>
+            {{ form_widget(form.search) }}
+        </div>
     </nav>
     <div class=\"content\">
-        <h1>Benutzerliste</h1>
-        <div class=\"button-container\">
-            <button class=\"add-user-btn\">Nutzer Hinzufügen</button>
-            <button class=\"mark-all-btn\">Alle Markieren</button>
+        <div class=\"header-container\">
+            <h1>Benutzerliste</h1>
+            <div class=\"button-container\">
+                {{ form_widget(form.mark) }}
+                {{ form_widget(form.newUser) }}
+            </div>
         </div>
         <table class=\"user-table\">
             <thead>
             <tr>
                 <th>ID</th>
+                <th>Vorname</th>
+                <th>Nachname</th>
                 <th>Benutzername</th>
                 <th>Email</th>
                 <th>Position</th>
@@ -207,12 +249,15 @@ class __TwigTemplate_89cb15188b39ce5f8587cded4080d744 extends Template
             <tbody>
             <tr>
                 <td>1</td>
-                <td>max_mustermann</td>
-                <td>max@beispiel.de</td>
-                <td>Mitarbeiter</td>
+                <td>Matteo</td>
+                <td>Grado</td>
+                <td>Matteo.Grado</td>
+                <td>Matteo.Grado@nikoit.de</td>
+                <td>Administrator</td>
                 <td>
-                    <button class=\"edit-btn\">Bearbeiten</button>
-                    <button class=\"delete-btn\">Löschen</button>
+                    {{ form_widget(form.edit) }}
+                    {{ form_widget(form.delete) }}
+                {{ form_end(form) }}
                 </td>
             </tr>
             </tbody>
@@ -225,9 +270,6 @@ class __TwigTemplate_89cb15188b39ce5f8587cded4080d744 extends Template
         const mainContent = document.querySelector('.main-content');
         sidebar.classList.toggle('collapsed');
         mainContent.classList.toggle('collapsed');
-    }
-    function logout() {
-        alert(\"Ausgeloggt!\");
     }
 </script>
 </body>
