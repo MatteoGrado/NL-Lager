@@ -23,10 +23,12 @@ return [
     'access_point' => [[], ['_controller' => 'App\\Controller\\BarcodeReaderController::index'], [], [['text', '/']], [], [], []],
     'dashboard' => [[], ['_controller' => 'App\\Controller\\DashboardController::dashboard'], [], [['text', '/dashboard']], [], [], []],
     'NewItem' => [[], ['_controller' => 'App\\Controller\\NewItemController::generateInput'], [], [['text', '/new/item']], [], [], []],
+    'newUser' => [[], ['_controller' => 'App\\Controller\\NewUserController::newUser'], [], [['text', '/new/user']], [], [], []],
     'App\Controller\AdminController::adminLogin' => [[], ['_controller' => 'App\\Controller\\AdminController::adminLogin'], [], [['text', '/admin']], [], [], []],
     'App\Controller\AdminDashboardController::adminDashboard' => [[], ['_controller' => 'App\\Controller\\AdminDashboardController::adminDashboard'], [], [['text', '/admin/dashboard']], [], [], []],
     'App\Controller\BarcodeGeneratorController::show' => [[], ['_controller' => 'App\\Controller\\BarcodeGeneratorController::show'], [], [['text', '/generator']], [], [], []],
     'App\Controller\BarcodeReaderController::index' => [[], ['_controller' => 'App\\Controller\\BarcodeReaderController::index'], [], [['text', '/']], [], [], []],
     'App\Controller\DashboardController::dashboard' => [[], ['_controller' => 'App\\Controller\\DashboardController::dashboard'], [], [['text', '/dashboard']], [], [], []],
     'App\Controller\NewItemController::generateInput' => [[], ['_controller' => 'App\\Controller\\NewItemController::generateInput'], [], [['text', '/new/item']], [], [], []],
+    'App\Controller\NewUserController::newUser' => [[], ['_controller' => 'App\\Controller\\NewUserController::newUser'], [], [['text', '/new/user']], [], [], []],
 ];

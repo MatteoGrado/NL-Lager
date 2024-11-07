@@ -390,6 +390,13 @@
         <argument type="service" id=".service_locator.QaaoWjx.App\Controller\NewItemController"/>
       </call>
     </service>
+    <service id="App\Controller\NewUserController" class="App\Controller\NewUserController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.QaaoWjx.App\Controller\NewUserController"/>
+      </call>
+    </service>
     <service id="App\Entity\Item" class="App\Entity\Item" autowire="true" autoconfigure="true"/>
     <service id="App\Entity\User" class="App\Entity\User" autowire="true" autoconfigure="true"/>
     <service id="App\Form\AdminDashboardFormType" class="App\Form\AdminDashboardFormType" autowire="true" autoconfigure="true">
@@ -408,6 +415,9 @@
       <tag name="form.type"/>
     </service>
     <service id="App\Form\NewItemType" class="App\Form\NewItemType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\NewUserFormType" class="App\Form\NewUserFormType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
     <service id="App\Repository\ItemRepository" class="App\Repository\ItemRepository" autowire="true" autoconfigure="true">
@@ -1366,6 +1376,7 @@
         <argument>App\Form\BarcodeReaderFormType</argument>
         <argument>App\Form\DashboardFormType</argument>
         <argument>App\Form\NewItemType</argument>
+        <argument>App\Form\NewUserFormType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FormType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\ChoiceType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FileType</argument>
@@ -3859,7 +3870,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension">
-      <argument type="service" id=".service_locator.Oz9a5NP"/>
+      <argument type="service" id=".service_locator.bgtjVWG"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -7156,6 +7167,9 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\NewItemController" class="App\Controller\NewItemController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\NewItemController" class="App\Controller\NewItemController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\NewItemController" class="App\Controller\NewItemController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\NewUserController" class="App\Controller\NewUserController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\NewUserController" class="App\Controller\NewUserController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\NewUserController" class="App\Controller\NewUserController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\AdminDashboardFormType" class="App\Form\AdminDashboardFormType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\AdminDashboardFormType" class="App\Form\AdminDashboardFormType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\AdminLoginFormType" class="App\Form\AdminLoginFormType" autowire="true" abstract="true"/>
@@ -7168,6 +7182,8 @@
     <service id=".abstract.instanceof.App\Form\DashboardFormType" class="App\Form\DashboardFormType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\NewItemType" class="App\Form\NewItemType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\NewItemType" class="App\Form\NewItemType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\NewUserFormType" class="App\Form\NewUserFormType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\NewUserFormType" class="App\Form\NewUserFormType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ItemRepository" class="App\Repository\ItemRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\ItemRepository" class="App\Repository\ItemRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\UserRepository" class="App\Repository\UserRepository" autowire="true" abstract="true"/>
@@ -7909,7 +7925,7 @@
       <argument type="service" id="argument_resolver.query_parameter_value_resolver"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.Oz9a5NP" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.bgtjVWG" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Form\AdminDashboardFormType" type="service_closure" id="App\Form\AdminDashboardFormType"/>
@@ -7918,6 +7934,7 @@
         <argument key="App\Form\BarcodeReaderFormType" type="service_closure" id="App\Form\BarcodeReaderFormType"/>
         <argument key="App\Form\DashboardFormType" type="service_closure" id="App\Form\DashboardFormType"/>
         <argument key="App\Form\NewItemType" type="service_closure" id="App\Form\NewItemType"/>
+        <argument key="App\Form\NewUserFormType" type="service_closure" id="App\Form\NewUserFormType"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="service_closure" id="form.type.form"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\ChoiceType" type="service_closure" id="form.type.choice"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\FileType" type="service_closure" id="form.type.file"/>
@@ -8331,6 +8348,12 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.QaaoWjx" method="withContext"/>
     </service>
+    <service id=".service_locator.QaaoWjx.App\Controller\NewUserController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\NewUserController"/>
+      <argument>App\Controller\NewUserController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.QaaoWjx" method="withContext"/>
+    </service>
     <service id=".service_locator.DMfgFyO" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -8521,6 +8544,7 @@
           <argument>App\Controller\BarcodeReaderController</argument>
           <argument>App\Controller\DashboardController</argument>
           <argument>App\Controller\NewItemController</argument>
+          <argument>App\Controller\NewUserController</argument>
           <argument>Doctrine\Bundle\DoctrineBundle\Controller\ProfilerController</argument>
         </argument>
       </call>

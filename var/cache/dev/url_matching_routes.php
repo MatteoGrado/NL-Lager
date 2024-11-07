@@ -20,6 +20,7 @@ return [
         '/' => [[['_route' => 'access_point', '_controller' => 'App\\Controller\\BarcodeReaderController::index'], null, null, null, false, false, null]],
         '/dashboard' => [[['_route' => 'dashboard', '_controller' => 'App\\Controller\\DashboardController::dashboard'], null, null, null, false, false, null]],
         '/new/item' => [[['_route' => 'NewItem', '_controller' => 'App\\Controller\\NewItemController::generateInput'], null, null, null, false, false, null]],
+        '/new/user' => [[['_route' => 'newUser', '_controller' => 'App\\Controller\\NewUserController::newUser'], null, null, null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'
