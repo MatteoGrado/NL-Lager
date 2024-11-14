@@ -2,8 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Item;
 use App\Form\DashboardFormType;
-use App\Repository\ItemRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -11,16 +12,15 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class DashboardController extends AbstractController {
     #[Route('/dashboard', name: 'dashboard')]
-    public function dashboard(ItemRepository $itemRepository, Request $request): Response {
+    public function dashboard(Request $request, EntityManagerInterface $entityManager): Response {
         $form = $this->createForm(DashboardFormType::class);
         $form->handleRequest($request);
 
-        $result = $itemRepository->findAll();
-
-
+        $items = $entityManager->getRepository(Item::class)->findAll();
 
         return $this->render('dashboard/dashboard.html.twig', [
-            'form' => $form,
+            'items' => $items,
+            'form' => $form
         ]);
     }
 }

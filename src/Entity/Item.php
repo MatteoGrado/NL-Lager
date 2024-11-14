@@ -24,6 +24,9 @@ class Item {
     #[ORM\Column(length: 255)]
     private ?string $product_seller = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $product_deliverTime = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -73,6 +76,18 @@ class Item {
     public function setProductSeller(string $product_seller): static
     {
         $this->product_seller = $product_seller;
+
+        return $this;
+    }
+
+    public function getProductDeliverTime(): ?string
+    {
+        return $this->product_deliverTime;
+    }
+
+    public function setProductDeliverTime(string $product_deliverTime): static
+    {
+        $this->product_deliverTime = $product_deliverTime;
 
         return $this;
     }

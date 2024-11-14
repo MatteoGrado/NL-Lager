@@ -51,17 +51,21 @@
                 <th>Produkt Name</th>
                 <th>Lagerbestand</th>
                 <th>Preis ( € )</th>
+                <th>Geliefert am</th>
                 <th>Lieferant</th>
             </tr>
             </thead>
             <tbody>
+            {% for item in items %}
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.productName }}</td>
+                    <td>{{ item.productStock }}</td>
+                    <td>{{ item.productCost }}</td>
+                    <td>{{ item.productDeliverTime }}</td>
+                    <td>{{ item.productSeller }}</td>
                 </tr>
+            {% endfor %}
             </tbody>
         </table>
     </div>

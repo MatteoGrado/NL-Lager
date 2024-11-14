@@ -41,6 +41,13 @@ class NewItemType extends AbstractType {
                     'required' => false
                 ]]
             )
+            ->add('delivery_time',
+                TextType::class,
+                ['label' => 'Geliefert am:',
+                    'attr' => ['class' => 'form-control',
+                        'required' => false
+                    ]]
+            )
             ->add('seller',
             TextType::class,
                 ['label' => 'Verkäufer:',
