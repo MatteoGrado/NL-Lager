@@ -2,5 +2,18 @@
 <title>IMS - New User</title>
 <link rel="stylesheet" href="{{ asset('styles/newUser/newUser.css') }}">
 {% block body %}
-
+    <div class="container">
+        <div class="form">
+            <h1 class="header">Registrieren:</h1>
+                {{ form_start(form) }}
+                    {{ form_row(form.firstname) }}
+                    {{ form_row(form.lastname) }}
+                    {{ form_row(form.username) }}
+                    {{ form_row(form.email) }}
+                    {{ form_row(form.password) }}
+                    {{ form_row(form.role) }}
+                    {{ form_row(form.create) }}
+                {{ form_end(form) }}
+        </div>
+    </div>
 {% endblock %}

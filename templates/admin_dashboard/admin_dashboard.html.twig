@@ -21,12 +21,12 @@
         <li><a href="#">Hilfe</a></li>
     </ul>
     <div class="logout-container">
+        {{ form_start(form) }}
         {{ form_widget(form.logout) }}
     </div>
 </div>
 <div class="main-content">
     <nav class="navbar">
-        {{ form_start(form) }}
         <div class="navbar-content">
             <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
             {{ form_widget(form.search) }}
@@ -36,8 +36,10 @@
         <div class="header-container">
             <h1>Benutzerliste</h1>
             <div class="button-container">
+                {{ form_start(form) }}
                 {{ form_widget(form.mark) }}
                 {{ form_widget(form.newUser) }}
+                {{ form_end(form) }}
             </div>
         </div>
         <table class="user-table">
@@ -53,19 +55,28 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>1</td>
-                <td>Matteo</td>
-                <td>Grado</td>
-                <td>Matteo.Grado</td>
-                <td>Matteo.Grado@nikoit.de</td>
-                <td>Administrator</td>
-                <td>
-                    {{ form_widget(form.edit) }}
-                    {{ form_widget(form.delete) }}
-                {{ form_end(form) }}
-                </td>
-            </tr>
+            {% for user in users %}
+                <tr>
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.firstname }}</td>
+                    <td>{{ user.lastname }}</td>
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>
+                    {% if roles[user.id] is not empty %}
+                        {{ roles[user.id] | join(', ') }}
+                    {% else %}
+                        Keine Rolle
+                    {% endif %}
+                    </td>
+                    <td>
+                        {{ form_start(forms[user.id]) }}
+                        {{ form_widget(forms[user.id].edit) }}
+                        {{ form_widget(forms[user.id].delete) }}
+                        {{ form_end(forms[user.id]) }}
+                    </td>
+                </tr>
+            {% endfor %}
             </tbody>
         </table>
     </div>

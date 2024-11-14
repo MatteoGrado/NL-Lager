@@ -27,14 +27,6 @@ class AdminDashboardFormType extends AbstractType {
                 'label' => '🚪 Ausloggen',
                 'attr' => ['class' => 'btn btn-primary']
             ])
-            ->add('edit', SubmitType::class, [
-                'label' => 'Bearbeiten',
-                'attr' => ['class' => 'edit-btn']
-            ])
-            ->add('delete', SubmitType::class, [
-                'label' => 'Löschen',
-                'attr' => ['class' => 'delete-btn']
-            ])
         ;
     }
 }

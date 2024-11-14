@@ -2,23 +2,23 @@
 
 namespace App\Form;
 
-use Doctrine\DBAL\Types\TextType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Form\SubmitButton;
 
 class NewUserFormType extends AbstractType {
     public function buildForm(FormBuilderInterface $builder, array $options): void {
         $builder
-            ->add('first-name',
+            ->add('firstname',
                 TextType::class,
                     ['label' => 'Vorname:',
                     'attr' => ['class' => 'form-control',
                     'required' => true,
                 ]]
             )
-            ->add('last-name',
+            ->add('lastname',
                 TextType::class,
                     ['label' => 'Nachname:',
                     'attr' => ['class' => 'form-control',
@@ -30,6 +30,13 @@ class NewUserFormType extends AbstractType {
                 ['label' => 'Benutzername:',
                     'attr' => ['class' => 'form-control',
                         'required' => true
+                    ]]
+            )
+            ->add('email',
+                TextType::class,
+                ['label' => 'E-Mail:',
+                'attr' => ['class' => 'form-control',
+                'required' => true
                     ]]
             )
             ->add('role',
@@ -46,8 +53,8 @@ class NewUserFormType extends AbstractType {
                         'required' => true
                     ]]
             )
-            ->add('username',
-                SubmitButton::class,
+            ->add('create',
+                SubmitType::class,
                 ['label' => 'Erstellen:',
                     'attr' => ['class' => 'form-control'
                     ]]
